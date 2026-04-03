@@ -1,1 +1,25 @@
+package test;
 
+import src.Calculator;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+ * Jedinični test za klasu Calculator.
+ */
+public class CalculatorTest {
+
+    @Test
+    public void testCalculateSimpleAddition() {
+        Calculator calculator = new Calculator();
+        double result = calculator.Calculate("4+5");
+        assertEquals(9, result, 0.001, "Test failed for expression: 4+5");
+    }
+
+    @Test
+    public void testCalculateWithPriority() {
+        Calculator calculator = new Calculator();
+        double result = calculator.Calculate("10+5*4");
+        assertEquals(30, result, 0.001, "Test failed for expression: 10+5*4");
+    }
+}
